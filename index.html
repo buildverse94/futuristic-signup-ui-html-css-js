@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <svg class="bg-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #ff007a; stop-opacity: 0.8" />
+          <stop offset="100%" style="stop-color: #00d2ff; stop-opacity: 0.8" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M -100 200 Q 200 -50 500 300 T 1200 100"
+        fill="none"
+        stroke="url(#grad1)"
+        stroke-width="40"
+        stroke-linecap="round"
+      />
+    </svg>
+
+    <main class="glass-card">
+      <div class="left-section">
+        <div class="title-group">
+          <h1>Join the<br />Future</h1>
+          <div class="accent-line"></div>
+        </div>
+
+        <form
+          id="signupForm"
+          onsubmit="handleFormSubmit(event)"
+          class="form-group"
+        >
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Full Name"
+              required
+              class="input-underline"
+            />
+            <i class="fa-regular fa-user input-icon"></i>
+          </div>
+
+          <div class="input-wrapper">
+            <input
+              type="email"
+              id="email"
+              placeholder="Email"
+              required
+              class="input-underline"
+            />
+            <i class="fa-regular fa-envelope input-icon"></i>
+          </div>
+
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+              oninput="checkPasswordStrength(this.value)"
+              class="input-underline"
+            />
+            <i
+              class="fa-solid fa-lock input-icon"
+              id="toggleLock"
+              onclick="togglePasswordVisibility()"
+            ></i>
+          </div>
+
+          <div class="strength-wrapper">
+            <div id="strengthBar" class="strength-bar"></div>
+          </div>
+
+          <button type="submit" class="btn-submit">Sign up</button>
+
+          <div class="terms-group">
+            <input type="checkbox" id="terms" required />
+            <label for="terms"
+              >I agree to the <a href="#">Terms & Conditions</a></label
+            >
+          </div>
+
+          <div class="divider">
+            <span>Or sign up with</span>
+          </div>
+
+          <div class="social-row">
+            <a
+              href="#"
+              onclick="showToast('Signing up with Google...')"
+              title="Google"
+              class="social-btn glass-box"
+              ><i class="fa-brands fa-google"></i
+            ></a>
+            <a
+              href="#"
+              onclick="showToast('Signing up with Apple...')"
+              title="Apple"
+              class="social-btn glass-box"
+              ><i class="fa-brands fa-apple"></i
+            ></a>
+            <a
+              href="#"
+              onclick="showToast('Signing up with Shield...')"
+              title="Shield Security"
+              class="social-btn glass-box"
+              ><i class="fa-solid fa-shield-halved"></i
+            ></a>
+            <a
+              href="#"
+              onclick="showToast('Signing up with GitHub...')"
+              title="GitHub"
+              class="social-btn glass-box"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+          </div>
+        </form>
+      </div>
+
+      <div class="right-section">
+
+        <div class="top-pill-wrapper">
+          <a href="#" onclick="toggleAuthMode(event)" class="pill-btn">
+            <span>Welcome back</span>
+            <div class="pill-icon">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+          </a>
+        </div>
+
+        <div class="glass-box quote-card">
+          <p>
+            "The experience of entering the next web dimension starts here.
+            Designed for seamless interactions and security."
+          </p>
+          <span class="quote-author">/ Your next step.</span>
+        </div>
+
+        <div class="bottom-badge-wrapper">
+          <div class="security-badge">
+            <div class="security-icon">
+              <i class="fa-solid fa-shield-cat"></i>
+            </div>
+            <span>Secure & Encrypted</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="toast" class="toast">
+      <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+      <span id="toastMessage">Action successful!</span>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
